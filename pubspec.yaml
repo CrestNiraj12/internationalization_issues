@@ -35,11 +35,10 @@ dependencies:
     cupertino_icons: ^1.0.2
     intl: ^0.17.0
     easy_localization: ^3.0.0
-    bloc: ^8.1.1
-    flutter_bloc: ^8.1.2
-    flutter_localizations: 
+    flutter_localizations:
         sdk: flutter
         version: ^0.0.0
+    nepali_utils: ^3.0.3
 
 dev_dependencies:
     flutter_test:

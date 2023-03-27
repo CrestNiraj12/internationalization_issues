@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:internationalization_issues/components/locale_changer.dart';
+import 'package:nepali_utils/nepali_utils.dart';
 
 Map<String, String> symbols = {
   'en': '\$',
@@ -20,6 +21,25 @@ class LocalizedStrings extends StatefulWidget {
 class _LocalizedStringsState extends State<LocalizedStrings> {
   @override
   Widget build(BuildContext context) {
+    String locale = context.locale.toString();
+    String currentDateTime =
+        DateFormat('MMMM d, y hh:mm:ss a', locale).format(DateTime.now());
+    String currentNepaliDateTime =
+        NepaliDateFormat('MMMM d, y hh:mm:ss a').format(NepaliDateTime.now());
+
+    String numberFormat =
+        NumberFormat.decimalPattern(locale).format(119221.123);
+    String nepaliNumberFormat = NepaliNumberFormat().format(119221.123);
+
+    String currencyFormat = NumberFormat.currency(
+      locale: locale,
+      symbol: symbols[locale],
+    ).format(121229221.123);
+    String nepaliCurrencyFormat = NepaliNumberFormat(
+      symbol: symbols[locale],
+      isMonetory: true,
+    ).format(121229221.123);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -60,7 +80,7 @@ class _LocalizedStringsState extends State<LocalizedStrings> {
                   height: 10,
                 ),
                 Text(
-                  '${tr('Current DateTime')}: ${DateFormat('MMMM d, y hh:mm:ss a', context.locale.toString()).format(DateTime.now())}',
+                  '${tr('Current DateTime')}: ${locale == 'ne' ? currentNepaliDateTime : currentDateTime}',
                   style: Theme.of(context)
                       .textTheme
                       .bodyText2
@@ -80,8 +100,7 @@ class _LocalizedStringsState extends State<LocalizedStrings> {
                   height: 10,
                 ),
                 Text(
-                  NumberFormat.decimalPattern(context.locale.toString())
-                      .format(19221.123),
+                  locale == 'ne' ? nepaliNumberFormat : numberFormat,
                   style: Theme.of(context)
                       .textTheme
                       .bodyText2
@@ -101,10 +120,7 @@ class _LocalizedStringsState extends State<LocalizedStrings> {
                   height: 10,
                 ),
                 Text(
-                  NumberFormat.currency(
-                    locale: context.locale.toString(),
-                    symbol: symbols[context.locale.toString()],
-                  ).format(121229221.123),
+                  locale == 'ne' ? nepaliCurrencyFormat : currencyFormat,
                   style: Theme.of(context)
                       .textTheme
                       .bodyText2
