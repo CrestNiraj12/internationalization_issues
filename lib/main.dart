@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:internationalization_issues/localized_strings/localized_strings.dart';
+import 'package:internationalization_issues/home.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +27,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Internationalization Issues & Solutions',
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
@@ -35,7 +35,7 @@ class App extends StatelessWidget {
         primarySwatch: Colors.lightBlue,
         fontFamily: 'Poppins',
       ),
-      home: const LocalizedStrings(),
+      home: const Home(),
     );
   }
 }
