@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:internationalization_issues/components/home_card.dart';
 import 'package:internationalization_issues/localized_images/localized_images.dart';
 import 'package:internationalization_issues/localized_strings/localized_strings.dart';
+
+import 'design_issues/design_issues.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -40,93 +43,26 @@ class _HomeState extends State<Home> {
               },
             ),
             HomeCard(
-                image: 'assets/images/image_localize.png',
-                title: 'Image localization',
-                description:
-                    'Images may need to be localized in some cases. For example, an app may need to display different images for different languages or regions.',
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const LocalizedImages()));
-                }),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class HomeCard extends StatelessWidget {
-  const HomeCard({
-    Key? key,
-    required this.image,
-    required this.title,
-    required this.description,
-    required this.onTap,
-  }) : super(key: key);
-
-  final String image;
-  final String title;
-  final String description;
-  final Function() onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: const BoxConstraints(
-        maxWidth: 180,
-      ),
-      child: GestureDetector(
-        onTap: onTap,
-        child: Card(
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(15),
+              image: 'assets/images/image_localize.png',
+              title: 'Image localization',
+              description:
+                  'Images may need to be localized in some cases. For example, an app may need to display different images for different languages or regions.',
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const LocalizedImages()));
+              },
             ),
-          ),
-          child: Column(
-            children: [
-              Container(
-                height: 100,
-                decoration: BoxDecoration(
-                  borderRadius:
-                      const BorderRadius.vertical(top: Radius.circular(15)),
-                  image: DecorationImage(
-                    image: AssetImage(image),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 10,
-                  horizontal: 20,
-                ),
-                child: Column(
-                  children: [
-                    Text(
-                      title,
-                      style: Theme.of(context).textTheme.headline6?.copyWith(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      description,
-                      maxLines: 4,
-                      overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context)
-                          .textTheme
-                          .subtitle1
-                          ?.copyWith(fontSize: 12),
-                    )
-                  ],
-                ),
-              ),
-            ],
-          ),
+            HomeCard(
+              image: 'assets/images/overflow.png',
+              title: 'Design and Layout issues',
+              description:
+                  'This includes issues occurring in UI due to different languages as languages differ in typography, spacing and text length. The problem can be technical or logical. Logical issue can be occurred according to the design requirements and responsiveness.',
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const DesignIssues()));
+              },
+            ),
+          ],
         ),
       ),
     );
