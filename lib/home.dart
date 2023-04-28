@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:internationalization_issues/components/home_card.dart';
 import 'package:internationalization_issues/localized_images/localized_images.dart';
 import 'package:internationalization_issues/localized_strings/localized_strings.dart';
+import 'package:internationalization_issues/rtl_support/rtl_support.dart';
 
 import 'design_issues/design_issues.dart';
 
@@ -60,6 +61,16 @@ class _HomeState extends State<Home> {
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => const DesignIssues()));
+              },
+            ),
+            HomeCard(
+              image: 'assets/images/rtl.png',
+              title: 'RTL Support',
+              description:
+                  'The text direction is another internationalization issue. Different languages and regions may have different text direction requirements.',
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const RTLSupport()));
               },
             ),
           ],

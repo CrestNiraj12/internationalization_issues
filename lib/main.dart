@@ -13,6 +13,7 @@ void main() async {
         Locale('hi'),
         Locale('fr'),
         Locale('ne'),
+        Locale('ar'),
       ],
       path: 'assets/translations',
       fallbackLocale: const Locale('en'),

@@ -1,3 +1,5 @@
+import 'dart:ui' as ui;
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:internationalization_issues/components/locale_changer.dart';
@@ -38,6 +40,7 @@ class _LocalizedImagesState extends State<LocalizedImages>
               'Images may need to be localized in some cases. For example, an app may need to display different images for different languages or regions.',
               style:
                   Theme.of(context).textTheme.headline6?.copyWith(fontSize: 18),
+              textDirection: ui.TextDirection.ltr,
             ),
             const SizedBox(
               height: 25,
