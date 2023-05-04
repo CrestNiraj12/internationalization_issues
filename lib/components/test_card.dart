@@ -45,13 +45,16 @@ class TestCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    title,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.headline6?.copyWith(
-                          fontSize: 16,
-                        ),
+                  SizedBox(
+                    height: 50,
+                    child: Text(
+                      title,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.headline6?.copyWith(
+                            fontSize: 16,
+                          ),
+                    ),
                   ),
                   const SizedBox(
                     height: 10,
@@ -60,10 +63,12 @@ class TestCard extends StatelessWidget {
                     height: 40,
                     child: Text(
                       description,
+                      maxLines: 2,
                       style: Theme.of(context)
                           .textTheme
                           .subtitle1
                           ?.copyWith(fontSize: 12),
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   const SizedBox(
